@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resume</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootstrap 4 Portfolio/Resume Theme for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- FontAwesome JS -->
+    <script defer src="{% static 'assets/fontawesome/js/all.js' %}"></script>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- github calendar css -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/github-calendar/dist/github-calendar.css' %}">
+    <!-- github activity css -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="{% static 'assets/plugins/github-activity/github-activity-0.1.5.min.css' %}">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
+
+
+</head>
+
+<body>
+    <!-- ******HEADER****** -->
+    {% for about in object_list %}
+    <header class="header">
+        <div class="container clearfix">
+            <img class="profile-image img-fluid float-left" style="height: 210px; width: 200px;" src="../static/assets/images/portFol.png" alt="James Lee" />
+            <div class="profile-content float-left">
+                <h1 class="name">{{ about.my_name }}</h1>
+                <h2 class="desc">Web App Developer</h2>
+                <ul class="social list-inline">
+                    <li class="list-inline-item" title="Facebook"><a href="https://www.facebook.com/profile.php?id=100007657412189"><i class="fab fa-facebook-f"></i></a></li>
+                    <!-- <li class="list-inline-item" title="Google"><a href="#"><i class="fab fa-google-plus-g"></i></a></li> -->
+                    <li class="list-inline-item" title="Linkdin"><a href="https://www.linkedin.com/in/nur-amin-sifat-b69602153/"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li class="list-inline-item" title="Github"><a href="https://github.com/NurAminSifatTanha"><i class="fab fa-github-alt"></i></a></li>
+                    <li class="list-inline-item" title="Stackoverflow"><a href="https://stackoverflow.com/users/9349166/nas380"><i class="fab fa-stack-overflow"></i></a></li>
+                    <!-- <li class="list-inline-item last-item"><a href="#"><i class="fab fa-codepen"></i></a></li>                 -->
+                </ul>
+            </div><!--//profile-->
+
+        </div><!--//container-->
+    </header><!--//header-->
+    {% endfor %}
+
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-lg-8 col-12">
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">About Me</h2>
+                        {% for about in object_list %}
+                        <div class="content">
+                            <p>{{ about.my_descriptions }}</p>
+                        </div><!--//content-->
+                        {% endfor %}
+                    </div><!--//section-inner-->
+                </section><!--//section-->
+
+                <section class="projects section">
+                    <div class="section-inner">
+                        <h2 class="heading">My Projects</h2>
+                        <div class="content">
+                     {% for project in myProjects %}
+                            <div class="item">
+                                <h3 class="title">{{ project.project_name }}</h3>
+                                <p class="summary">{{ project.project_descriptions }} <a href="#">click here</a></p>
+                            </div><!--//item-->
+                     {% endfor %}
+
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </section><!--//section-->
+
+                <section class="experience section">
+                    <div class="section-inner">
+                        <h2 class="heading">Work Experience</h2>
+                        <div class="content">
+                            {% for experience in workExperiences %}
+                            <div class="item">
+                                <h3 class="title">{{ experience.experience_name }}</h3>
+                                <p>{{ experience.experience_descriptions }}</p>
+                            </div><!--//item-->
+                            {% endfor %}
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </section><!--//section-->
+                <section class="github section" >
+                    <div class="section-inner">
+                        <h2 class="heading">My GitHub</h2>
+                        <p>My Github contribution calendar. </p>
+
+                        <!-- <div id="github-graph" class="github-graph"> -->
+                            <div class="github-graph" id="github-graph">
+                                <!-- Loading stuff -->
+                                Loading the data just for you.
+                            </div>
+
+                        <!-- </div>//github-graph -->
+
+                        <p>If you want to know more about github account please visit  <a href="https://github.com/NurAminSifatTanha" target="_blank">N A Sifat</a>'s account'.
+
+
+                    </div><!--//secton-inner-->
+                </section><!--//section-->
+            <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">Interest</h2>
+{#                        {% for about in object_list %}#}
+                        <div class="content">
+                            <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I go to the hills and if anywhere play badminton. During summer seasion playing indoor games is like fun. I enjoy cycling, free climbing, and walking alone.
+
+When forced indoors, I watch a number of sci-fi and fantasy genre movies and play racing games, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end as well as back-end web development world.
+
+Once upon a time i used to gardening, after growing up i was used to paint. Painting gave me much pleasure and now all my interset fall on new technologies and programming and after knowing the word programming it takes my day and night from me. I just love it.
+
+If the interest goes to eat, I have to say, Love BIRIYANI a lot.</p>
+                        </div><!--//content-->
+{#                        {% endfor %}#}
+                    </div><!--//section-inner-->
+                </section><!--//section-->
+            </div><!--//primary-->
+            <div class="secondary col-lg-4 col-12">
+                 <aside class="info aside section">
+                    <h2 class="heading sr-only">Basic Information</h2>
+                    <div class="section-inner">
+
+                        <div class="content">
+                            <h3>Basic Information</h3>
+                            <ul class="list-unstyled">
+
+                                <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>Savar,Dhaka,Bangladesh</li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span>nur14-1463@diu.edu.bd</li>
+                                <li><i class="fa fa-mobile" aria-hidden="true"></i><span class="sr-only">mobile:</span>+8801949168736</li>
+{#                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#">https://www.website.com</a></li>#}
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//aside-->
+
+                <aside class="skills aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Skills</h2>
+                        <div class="content">
+                            <p>Proramming language and tools</p>
+                            <div class="skillset">
+                                {% for skill in skills %}
+                                <div class="item">
+                                    <h3 class="level-title">{{ skill.skill_name }}</h3>
+                                    <div class="level-bar">
+                                        <div class="level-bar-inner" data-level="{{ skill.skill_rate }}%">
+                                        </div>
+                                    </div><!--//level-bar-->
+                                </div><!--//item-->
+                                {% endfor %}
+
+                            </div>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+
+
+                <aside class="education aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Education</h2>
+                        <div class="content">
+                            {% for institute in educations %}
+                            <div class="item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4 class="title">{{ institute.institute_name }} ({{ institute.session }})</h4>
+                                <h5 class="university">{{ institute.degree_name }}</h5>
+                                <h5 class="university">{{institute.grade}}</h5>
+                            </div><!--//item-->
+                            {% endfor %}
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->
+
+                <aside class="languages aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Languages</h2>
+                        <div class="content">
+                            <ul class="list-unstyled">
+                                {% for language in languages %}
+                                <li class="item">
+                                    <span class="title"><strong>{{language.language_name}}</strong></span>
+                                    <span class="level">{{ language.stage }}<br class="visible-xs"/> </span>
+                                </li><!--//item-->
+                                {% endfor %}
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside>
+
+
+            </div><!--//secondary-->
+        </div><!--//row-->
+    </div><!--//masonry-->
+
+    <!-- ******FOOTER****** -->
+    <footer class="footer">
+        <div class="container text-center">
+                <small class="copyright">Designed with <i class="fas fa-heart"></i> by <a href="https://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/jquery-rss/dist/jquery.rss.min.js' %}"></script>
+    <!-- github calendar plugin -->
+    <script type="text/javascript" src="{% static 'assets/plugins/github-calendar/dist/github-calendar.min.js' %}"></script>
+    <!-- github activity plugin -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="{% static 'assets/plugins/github-activity/github-activity-0.1.5.min.js' %}"></script>
+    <!-- custom js -->
+    <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"> </script>
+    <script>
+        GitHubCalendar(".github-graph", "NurAminSifatTanha");
+        // or enable responsive functionality:
+        GitHubCalendar(".github-graph", "NurAminSifatTanha", { responsive: true });
+    </script>        
+</body>
+</html> 
+
